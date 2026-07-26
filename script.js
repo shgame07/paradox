@@ -209,8 +209,8 @@ function renderAiCandidates(query) {
   if (candidates.length === 0) {
     listEl.innerHTML = `
       <div class="ai-empty">
-        正式図鑑では見つかりませんでした。<br>みんなのパラドックスを検索しますか？
-        <div class="sub">※みんなのパラドックスはVer1.2で実装予定です</div>
+        正式図鑑では見つかりませんでした。<br>
+        <a href="community.html">みんなのパラドックス</a>で探してみますか？
       </div>`;
     return;
   }
@@ -267,10 +267,9 @@ function setupNotifications() {
 
 function setupCommunityButton() {
   const btn = document.getElementById("communityBtn");
-  const note = document.getElementById("communityNote");
   if (!btn) return;
   btn.addEventListener("click", () => {
-    note.textContent = "Ver1.2で公開予定です。";
+    window.location.href = "community.html";
   });
 }
 
