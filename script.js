@@ -16,6 +16,8 @@ const CATEGORY_STRUCTURE = {
 
 let ALL_ENTRIES = [];
 let currentFilter = { type: null, category: null };
+const PAGE_SIZE = 5;
+let visibleCount = PAGE_SIZE;
 
 /* ---------- データ取得 ---------- */
 async function loadData() {
@@ -137,12 +139,14 @@ function renderCategoryGroups() {
 
 function applyFilter(type, category) {
   currentFilter = { type, category };
+  visibleCount = PAGE_SIZE;
   document.getElementById("clearFilter").style.display = "block";
   renderEntryList();
 }
 
 function clearFilter() {
   currentFilter = { type: null, category: null };
+  visibleCount = PAGE_SIZE;
   document.getElementById("clearFilter").style.display = "none";
   document.querySelectorAll(".subcat-pill.active").forEach((p) => p.classList.remove("active"));
   renderEntryList();
@@ -165,7 +169,9 @@ function renderEntryList() {
     return;
   }
 
-  entries.forEach((e) => {
+  const visible = entries.slice(0, visibleCount);
+
+  visible.forEach((e) => {
     const card = document.createElement("a");
     card.className = "entry-card";
     card.href = `detail.html?id=${encodeURIComponent(e.id)}`;
@@ -180,6 +186,17 @@ function renderEntryList() {
     `;
     listEl.appendChild(card);
   });
+
+  if (entries.length > visible.length) {
+    const moreBtn = document.createElement("button");
+    moreBtn.className = "load-more-btn";
+    moreBtn.textContent = `もっと見る（残り${entries.length - visible.length}件）`;
+    moreBtn.addEventListener("click", () => {
+      visibleCount += PAGE_SIZE;
+      renderEntryList();
+    });
+    listEl.appendChild(moreBtn);
+  }
 }
 
 function renderAiCandidates(query) {
