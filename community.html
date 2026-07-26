@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>みんなのパラドックス | パラドックス図鑑</title>
+<meta name="description" content="ユーザーが自由に創作・投稿したパラドックス・現象・ジレンマを閲覧できるページ。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="marble-bg"></div>
+
+<header class="site-header">
+  <a href="index.html" class="site-title"><span class="mark">﹈</span>パラドックス図鑑</a>
+</header>
+
+<main class="wrap">
+  <nav class="breadcrumb" id="breadcrumb"></nav>
+
+  <section class="community-title-row">
+    <h1>みんなのパラドックス</h1>
+    <a href="index.html" class="back-to-official">← 正式図鑑へ戻る</a>
+  </section>
+
+  <div class="community-notice">
+    このページはユーザーが自由に創作・投稿した内容です。<br>
+    正式な学術用語・学説とは異なる場合があります。<br>
+    正式な用語を調べたい場合は<a href="index.html">正式図鑑</a>をご利用ください。
+  </div>
+
+  <section class="search-area">
+    <div class="search-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="text" id="communitySearchInput" placeholder="名前・キーワード・文章（AI）" autocomplete="off">
+    </div>
+    <div class="search-mode-hint">文章で入力すると <b>AI検索</b> が「もしかして」候補を提案します</div>
+
+    <div class="ai-results" id="communityAiResults">
+      <div class="ai-results-title">もしかして…</div>
+      <div id="communityAiCandidateList"></div>
+    </div>
+  </section>
+
+  <section class="category-section" id="communityCategorySection">
+    <div class="section-label">Category</div>
+    <div id="communityCategoryGroups"></div>
+  </section>
+
+  <section class="post-cta">
+    <a href="community-post.html" class="post-cta-btn">＋ 投稿する</a>
+    <a href="community-edit.html" class="edit-link">投稿の編集・削除はこちら</a>
+  </section>
+
+  <section class="list-section" id="communityListSection">
+    <div class="list-header">
+      <div class="entry-count" id="communityEntryCount"></div>
+      <div class="filter-tag" id="communityClearFilter" style="display:none;">絞り込みを解除 ✕</div>
+    </div>
+    <div id="communityEntryList"></div>
+  </section>
+
+  <footer class="site-footer">Version 1.2.0</footer>
+</main>
+
+<script src="community.js"></script>
+</body>
+</html>
