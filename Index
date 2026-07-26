@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>パラドックス図鑑 | 名前のない現象に、名前を。</title>
+<meta name="description" content="正式に存在するパラドックス・現象・ジレンマを、名前を知らなくてもAIで探せる図鑑。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="marble-bg"></div>
+
+<header class="site-header">
+  <div class="site-title"><span class="mark">﹈</span>パラドックス図鑑</div>
+  <div class="header-actions">
+    <button class="icon-btn" id="notifBtn" aria-label="お知らせ">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg>
+      <span class="badge-dot"></span>
+    </button>
+  </div>
+</header>
+
+<div class="notif-panel" id="notifPanel">
+  <h3>お知らせ</h3>
+  <div class="notif-item"><span class="date">2026.07.26</span>Ver1.0公開</div>
+  <div class="notif-item"><span class="date">2026.07.26</span>心理学の現象を15件追加しました</div>
+  <div class="notif-item"><span class="date">2026.07.26</span>数学のパラドックスを8件追加しました</div>
+  <div class="notif-item"><span class="date">2026.07.26</span>ジレンマを20件追加しました</div>
+</div>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="hero-eyebrow">Paradox / Phenomenon / Dilemma</div>
+    <h1>これって、名前ある？</h1>
+    <p>正式に存在するパラドックス・現象・ジレンマを、名前を知らなくても探せる知識図鑑。</p>
+  </section>
+
+  <section class="search-area">
+    <div class="search-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="text" id="searchInput" placeholder="名前・キーワード・文章（AI）" autocomplete="off">
+    </div>
+    <div class="search-mode-hint">文章で入力すると <b>AI検索</b> が「もしかして」候補を提案します</div>
+
+    <div class="ai-results" id="aiResults">
+      <div class="ai-results-title">もしかして…</div>
+      <div id="aiCandidateList"></div>
+    </div>
+  </section>
+
+  <section class="category-section" id="categorySection">
+    <div class="section-label">Category</div>
+    <div id="categoryGroups"></div>
+  </section>
+
+  <section class="list-section" id="listSection">
+    <div class="list-header">
+      <div class="entry-count" id="entryCount"></div>
+      <div class="filter-tag" id="clearFilter" style="display:none;">絞り込みを解除 ✕</div>
+    </div>
+    <div id="entryList"></div>
+  </section>
+
+  <section class="community-cta">
+    <button id="communityBtn">みんなのパラドックスを見る</button>
+    <div class="cta-note" id="communityNote"></div>
+  </section>
+
+  <footer class="site-footer">Version 1.0.0</footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
