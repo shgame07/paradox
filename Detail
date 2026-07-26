@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>詳細 | パラドックス図鑑</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="marble-bg"></div>
+
+<header class="site-header">
+  <a href="index.html" class="site-title"><span class="mark">﹈</span>パラドックス図鑑</a>
+</header>
+
+<main class="wrap">
+  <a href="index.html" class="detail-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    一覧に戻る
+  </a>
+
+  <div id="detailContent"></div>
+
+  <footer class="site-footer">Version 1.0.0</footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
