@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>編集・削除 | みんなのパラドックス</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="marble-bg"></div>
+
+<header class="site-header">
+  <a href="index.html" class="site-title"><span class="mark">﹈</span>パラドックス図鑑</a>
+</header>
+
+<main class="wrap">
+  <nav class="breadcrumb" id="breadcrumb"></nav>
+  <a href="community.html" class="detail-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    一覧に戻る
+  </a>
+
+  <h1 class="page-title">編集・削除</h1>
+  <p class="page-desc">投稿IDと管理キーを入力すると、内容を編集・削除できます。</p>
+
+  <form id="lookupForm" class="community-form">
+    <label>投稿ID<span class="req">必須</span>
+      <input type="text" id="lId" placeholder="例：MP-000001" required>
+    </label>
+    <label>管理キー<span class="req">必須</span>
+      <input type="text" id="lKey" placeholder="例：A7K9-X2PQ" required>
+    </label>
+    <button type="submit" class="submit-btn">確認する</button>
+  </form>
+
+  <div class="lookup-error" id="lookupError" style="display:none;"></div>
+
+  <div id="editArea" style="display:none;">
+    <hr class="hairline">
+    <form id="editForm" class="community-form">
+      <label>タイトル<span class="req">必須</span>
+        <input type="text" id="eTitle" required>
+      </label>
+
+      <label>分類<span class="req">必須</span></label>
+      <div class="type-select" id="editTypeSelect">
+        <button type="button" data-type="パラドックス">パラドックス</button>
+        <button type="button" data-type="現象">現象</button>
+        <button type="button" data-type="ジレンマ">ジレンマ</button>
+      </div>
+      <input type="hidden" id="eCategory" required>
+
+      <label>説明<span class="req">必須</span>
+        <textarea id="eDescription" rows="6" required></textarea>
+      </label>
+
+      <label>タグ（複数・任意）
+        <input type="text" id="eTags" placeholder="カンマ区切り">
+      </label>
+
+      <label>具体例（任意）
+        <textarea id="eExample" rows="3"></textarea>
+      </label>
+
+      <button type="submit" class="submit-btn">更新する</button>
+    </form>
+
+    <button type="button" id="deleteBtn" class="delete-btn">この投稿を削除する</button>
+
+    <div id="deleteConfirm" class="delete-confirm" style="display:none;">
+      <p>本当に削除しますか？この操作は取り消せません。</p>
+      <button type="button" id="deleteConfirmYes" class="delete-btn">削除する</button>
+      <button type="button" id="deleteConfirmNo" class="cancel-btn">キャンセル</button>
+    </div>
+  </div>
+
+  <footer class="site-footer">Version 1.2.0</footer>
+</main>
+
+<script src="community.js"></script>
+</body>
+</html>
